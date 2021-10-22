@@ -1,21 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--
         File: index.html
         Zachary Muranaka
-        Page that informs the visitor that there is more to come soon
+        Portfolio that showcases my projects and abilities
      -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>Zachary Muranaka | Portfolio</title>
     <link href="styles/portfolioStyles.css" rel="stylesheet">
+    <script src="scripts/functions.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/scroll.js" defer></script>
+    <script src="scripts/descriptions.js" defer></script>
 </head>
+
 <body>
-    <h1>Zachary Muranaka</h1>
-    <h2>There is more coming soon!</h2>
-    <p>In the meantime, feel free to contact me via any of the following ways:</p>
-    <a href="mailto:zacharymuranaka@mail.weber.edu"><img src="images/mailLogo.png" alt="Mail"/></a>
-    <a href="https://github.com/zmuranaka"><img src="images/githubLogo.png" alt="GitHub"/></a>
-    <a href="https://weber.joinhandshake.com/users/7194928?ref=students"><img src="images/handshakeLogo.jpg" alt="Handshake"/></a>
+
+    <section id="landingPage">
+        <img src="images/blackDownArrow.png" class="downArrow" alt="Continue"/>
+        <header>
+            <img src="images/whiteBurgerNav.png" alt="Menu" id="burgerNav">
+        </header>
+        <nav id="pageNav">
+            <div class="navLink">About Me</div>
+            <div class="navLink">Hypergeometric Calculator</div>
+            <div class="navLink">Reckless Road</div>
+            <div class="navLink">Liar's Dice</div>
+        </nav>
+        <h1>Zachary Muranaka</h1>
+        <p class="info">
+            Welcome to my portfolio!
+            Scroll down to learn a little bit about me and view some of my projects.
+        </p>
+        <a href="mailto:zacharymuranaka@mail.weber.edu"><img src="images/mailLogo.png" alt="Mail"/></a>
+        <a href="https://github.com/zmuranaka"><img src="images/githubLogo.png" alt="GitHub"/></a>
+        <a href="https://weber.joinhandshake.com/users/7194928?ref=students"><img src="images/handshakeLogo.jpg" alt="Handshake"/></a>
+    </section>
+    
+    <section>
+        <img src="images/blackDownArrow.png" class="downArrow" alt="Continue"/>
+        <h2>About Me</h2>
+        <p>
+            Hi, my name is Zachary Muranaka and I'm a computer science student and member of the
+            <a href="https://weber.edu/aletheia">Aletheia</a>
+            club at Weber State University, as well as tutor for their computer science program.
+            I love to code and am proficient with the languages HTML, CSS, JavaScript, PHP, C, C++, C#, Java, Python, and SQL.
+            I am also skilled with the command-line utilities Command Prompt, PowerShell, and Windows Subsystem for Linux,
+            as well as the version-control system Git.
+            When I'm not working or doing schoolwork, you can probably find me reading, working on a new coding project,
+            or brushing up on my coding skills on
+            <a href="https://www.hackerrank.com/zacharymuranaka?hr_r=1">HackerRank</a>.
+        </p>
+        <p>
+            A few of my projects are showcased below. A full list of my projects and code can be found on my
+            <a href="https://github.com/zmuranaka">GitHub</a>, including the code for this portfolio, which can be found
+            <a href="https://github.com/zmuranaka/zmuranaka.github.io">here</a>.
+        </p>
+    </section>
+
+    <section>
+        <img src="images/blackDownArrow.png" class="downArrow" alt="Continue"/>
+        <h2>Hypergeometric Calculator</h2>
+        <p class="description">
+            Responsive web application that solves hypergeometric distributions,
+            which describe the probability to get a number of desired successes out of a number of draws from a population without replacement.
+            I built this mainly with JavaScript, which performs the calculations and writes them to the HTML.
+        </p>
+        <div>
+            <video poster="images/hypergeom.jpg" class="tallVideo" controls>
+                <source src="videos/hypergeom.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div>
+            <a href="https://zmuranaka.github.io/hypergeometric-calculator-js/" class="button">View Live</a>
+            <a href="https://github.com/zmuranaka/hypergeometric-calculator-js" class="button">View Code</a>
+        </div>
+    </section>
+
+    <section>
+        <img src="images/blackDownArrow.png" class="downArrow" alt="Continue"/>
+        <h2>Reckless Road</h2>
+        <p class="description">
+            Computer game where you control a taxi driving down a crazy road.
+            Your objective is to get as far as you can without hitting another car or pedestrian.
+            I built this with Python and the framework Pygame Zero.
+        </p>
+        <div>
+            <video poster="images/recklessroad.jpg" class="wideVideo" controls>
+                <source src="videos/recklessroad.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div>
+            <a href="https://github.com/zmuranaka/reckless-road" class="button">View Code</a>
+        </div>
+    </section>
+
+    <section>
+        <img src="images/blackUpArrow.png" class="upArrow" alt="Back to Top"/>
+        <h2>Liar's Dice</h2>
+        <p class="description">
+            Computer application that allows the user to play the strategy game Liar's Dice against three computer-controlled opponents.
+            I built this with the Java and the GUI widget toolkits AWT and Swing.
+        </p>
+        <div>
+            <video poster="images/liarsDice.jpg" class="wideVideo" controls>
+                <source src="videos/liarsDice.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div>
+            <a href="https://github.com/zmuranaka/liars-dice" class="button">View Code</a>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            &#9400; 2021 Zachary Muranaka
+            <br>
+            <a href="mailto:zacharymuranaka@mail.weber.edu"><img src="images/mailLogo.png" alt="Mail"/></a>
+            <a href="https://github.com/zmuranaka"><img src="images/githubLogo.png" alt="GitHub"/></a>
+            <a href="https://weber.joinhandshake.com/users/7194928?ref=students"><img src="images/handshakeLogo.jpg" alt="Handshake"/></a>
+        </div>
+    </footer>
+
 </body>
+
 </html>

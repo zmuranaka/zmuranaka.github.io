@@ -4,20 +4,33 @@ Zachary Muranaka
 Styles for my portfolio
 */
 
-html { min-height: 100% }
+/* Structural styles */
 
 body {
     width: 100%;
-    min-height: 100%;
+    min-width: 320px; /* Narrowest screen in common use */
     margin: 0;
     text-align: center;
     font-family: "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
     word-wrap: break-word; /* Makes sure text never overflows the screen */
 }
 
+section {
+    position: relative;
+    height: 100vh; /* vh means viewport height */
+}
+
+header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(rgb(0, 0, 204), midnightblue);
+}
+
 h1 {
-    margin: 2vh 0;
-    padding: 25vh 0 0 0;
+    margin: 0;
+    padding: 30vh 0 0 0;
     font-size: 10vh;
     font-weight: normal;
 }
@@ -25,6 +38,195 @@ h1 {
 h2 {
     width: 95%;
     margin: 0 auto;
-    color: rgb(30, 30, 30);
+    color: rgb(20, 20, 20);
     font-size: 5vh;
+}
+
+video {
+    display: none;
+    width: auto;
+    height: 50vh;
+    border: 1px solid black;
+}
+
+/* Nav styles */
+
+#burgerNav {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    background: blue;
+    cursor: pointer;
+}
+
+.navLink {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    line-height: 2em;
+    padding-left: 1em;
+    background: blue;
+    cursor: pointer;
+    color: white;
+    text-align: left;
+}
+
+.navLink:hover {
+    background: rgb(216, 216, 255);
+    color: black;
+}
+
+.navLink:active { background: yellow }
+
+#landingPage a, footer a {
+    display: inline-block;
+    margin: 1em 0 0 1em;
+    color: white;
+    text-decoration: none;
+}
+
+p a {
+    color: rgb(0, 0, 204);
+    text-decoration: none;
+}
+
+p a:hover {
+    color: rgb(0, 255, 255);
+    text-decoration: underline;
+}
+
+p a:active {
+    color: yellow;
+}
+
+/* Paragraph styles */
+
+p {
+    width: 95%;
+    padding: 0;
+    color: rgb(40, 40, 40);
+    margin: 2vh auto;
+    font-size: 2.7vh;
+}
+
+.info, .description { font-style: italic }
+
+.info { font-size: 2.1vh }
+
+.description {
+    display: none;
+    margin: 1vh auto;
+}
+
+/* Arrow styles */
+
+#landingPage .downArrow { top: calc(85vh + 48px) } /* Account for 48px mobile navbar */
+
+.downArrow, .upArrow {
+    display: none;
+    position: absolute;
+    top: 85vh;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Defines an animation that moves an element up by 1.25vh and then back to its original position */
+@keyframes hop {
+
+    0%, 100% { transform: translateY(0) }
+    
+    50% { transform: translateY(-1.25vh) }
+
+}
+
+/* As long as the arrows are being hovered over, they perform the hop animation every 1 second */
+.downArrow:hover, .upArrow:hover { animation: hop 1s infinite }
+
+/* The following three rules makes the anchors with the class button look like buttons */
+.button {
+    display: inline-flex;
+    background: linear-gradient(to top, rgb(0, 0, 204), rgb(80, 80, 204));
+    width: 6em;
+    height: 2em;
+    margin-top: 0.5em;
+    padding: 0;
+    color: white;
+    border-width: 2px;
+    border-style: outset;
+    border-image: initial;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 3.5vh;
+}
+
+.button:hover { background: linear-gradient(to top, rgb(0, 175, 255), rgb(0, 255, 255)) }
+
+.button:active {
+    background: linear-gradient(to top, yellow, white);
+    color: rgb(0, 0, 30);
+}
+
+/* Footer styles */
+
+footer {
+    margin-top: 1em;
+    padding-top: 1em;
+    background: linear-gradient(rgb(0, 0, 204), midnightblue);
+    color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 0.8em;
+    font-variant: small-caps;
+}
+
+@media screen and (min-aspect-ratio: 11/25) { .tallVideo { display: inline } }
+
+@media screen and (min-aspect-ratio: 9/10) { .wideVideo { display: inline } }
+
+@media screen and (min-aspect-ratio: 18/25) and (min-height: 1000px),
+       screen and (min-aspect-ratio: 22/15) and (min-height: 368px) { .downArrow, .upArrow { display: inline } }
+
+/* Much of the layout changes when the aspect ratio is 22/15 or greater */
+@media screen and (min-aspect-ratio: 22/15) {
+
+    /* The burger nav changes to a sidebar nav when the aspect ratio is 22/15 or greater */
+    .navLink {
+        width: auto;
+        padding-left: 0.5em;
+        font-size: 1.5vw;
+        color: rgb(0, 0, 204);
+        background: none;
+    }
+
+    .navLink:hover {
+        background: none;
+        color: rgb(0, 255, 255);
+        text-decoration: underline;
+    }
+
+    .navLink:active {
+        background: none;
+        color: yellow;
+    }
+
+    header { display: none }
+
+    p { width: 55% }
+
+    #landingPage .downArrow { top: 85vh }
+
+    h2 { font-size: 6vh; }
+
+}
+
+@media screen and (min-aspect-ratio: 7/4) {
+    
+    p { font-size: 3.5vh }
+    
+    .info { font-size: 3vh }
+
 }
