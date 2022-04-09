@@ -86,14 +86,14 @@ function determineScrollPosition(object)
 // Recursive function that does a smooth scroll
 function smoothScroll(direction)
 {
-    if (weNeedToScrollAgain())
+    if (isScrollAgainNecessary())
     {
         // The setTimeout creates the smooth scroll effect
         scrollTime = setTimeout(function()
         {
             window.scrollBy(0, direction ? 6 : -6); // Scroll by 6 pixels
             smoothScroll(direction); // Recursively call this function
-        }, 0); 
+        }, 0);
     }
 }
 
@@ -106,12 +106,12 @@ function upOrDown()
 }
 
 // Returns whether we need to scroll again or not (true means we do)
-function weNeedToScrollAgain()
+function isScrollAgainNecessary()
 {
     return O("burgerNav").offsetHeight ?
-    (window.pageYOffset < positionToScrollTo - 54 || window.pageYOffset > positionToScrollTo - 48) && !weAreAtTheTop() :
-    (window.pageYOffset < positionToScrollTo - 6 || window.pageYOffset > positionToScrollTo) && !weAreAtTheTop();
+    (window.pageYOffset < positionToScrollTo - 54 || window.pageYOffset > positionToScrollTo - 48) && !isAtTop() :
+    (window.pageYOffset < positionToScrollTo - 6 || window.pageYOffset > positionToScrollTo) && !isAtTop();
 }
 
 // Returns whether we are at the top of the page or not (true means we are)
-function weAreAtTheTop() { return positionToScrollTo === 0 && window.pageYOffset === 0; }
+function isAtTop() { return positionToScrollTo === 0 && window.pageYOffset === 0; }

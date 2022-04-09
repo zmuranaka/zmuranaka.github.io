@@ -137,7 +137,7 @@ p {
 @keyframes hop {
 
     0%, 100% { transform: translateY(0) }
-    
+
     50% { transform: translateY(-1.25vh) }
 
 }
@@ -224,9 +224,9 @@ footer {
 }
 
 @media screen and (min-aspect-ratio: 7/4) {
-    
+
     p { font-size: 3.5vh }
-    
+
     .info { font-size: 3vh }
 
 }

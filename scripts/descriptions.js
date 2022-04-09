@@ -9,7 +9,7 @@ Handles how the descriptions display depending on the viewport
 var videos = T("video"); // Array of the videos
 var descriptions = C("description"); // Array of the descriptions
 
-// Add event listners to the window
+// Add event listeners to the window
 window.addEventListener("load", checkDescriptions);
 window.addEventListener("resize", checkDescriptions);
 

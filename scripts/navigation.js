@@ -36,14 +36,14 @@ function changeStyles()
     {
         for (let i = 0, offset = 0; i < navLinks.length; i++, offset+=2)
             S(navLinks[i]).top = offset + "em";
-        
+
         openNavMenu();
     }
     else
     {
         for (let i = 0, offset = 3; i < navLinks.length; i++, offset+=2)
             S(navLinks[i]).top = offset + "em";
-        
+
         closeNavMenu();
     }
 }
