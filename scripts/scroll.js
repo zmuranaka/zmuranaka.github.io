@@ -13,6 +13,7 @@ var aboutMePosition;
 var project1Position;
 var project2Position;
 var project3Position;
+var project4Position;
 var positionToScrollTo;
 var scrollTime; // This keeps track of the setTimeout while scrolling
 
@@ -28,6 +29,7 @@ function setPositions()
     project1Position = onePageHeight * 2;
     project2Position = onePageHeight * 3;
     project3Position = onePageHeight * 4;
+    project4Position = onePageHeight * 5;
 }
 
 // We stop scrolling if the window changes orientation
@@ -81,6 +83,7 @@ function determineScrollPosition(object)
     else if (object === navLinks[1] || object === downArrows[1]) positionToScrollTo = project1Position;
     else if (object === navLinks[2] || object === downArrows[2]) positionToScrollTo = project2Position;
     else if (object === navLinks[3] || object === downArrows[3]) positionToScrollTo = project3Position;
+    else if (object === navLinks[4] || object === downArrows[4]) positionToScrollTo = project4Position;
 }
 
 // Recursive function that does a smooth scroll
