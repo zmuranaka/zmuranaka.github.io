@@ -46,7 +46,7 @@ function changeStyles()
     oldAspectRatio = newAspectRatio;
 }
 
-// Initial layout set when loading this script
+// Set initial layout when loading this script
 if (oldAspectRatio >= ASPECT_RATIO_TO_CHANGE_LAYOUT)
 {
     setLayout(true);

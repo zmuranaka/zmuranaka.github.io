@@ -6,30 +6,22 @@ Zachary Muranaka
 Handles the scrolling in my portfolio
 */
 
-var aboutMePosition;
-var project1Position;
-var project2Position;
-var project3Position;
-var project4Position;
-var contactPosition;
+var positions = [0, 0, 0, 0, 0, 0]
 var positionToScrollTo;
 var scrollTime; // This keeps track of the setTimeout while scrolling
-
-// When we load or resize the window we have to set the positions
-window.addEventListener("load", setPositions);
-window.addEventListener("resize", setPositions);
 
 // Sets the variables that keep track of where objects are in the website
 function setPositions()
 {
-    var onePageHeight = document.getElementById("landingPage").offsetHeight; // The height of one page in the website
-    aboutMePosition = onePageHeight;
-    project1Position = onePageHeight * 2;
-    project2Position = onePageHeight * 3;
-    project3Position = onePageHeight * 4;
-    project4Position = onePageHeight * 5;
-    contactPosition = onePageHeight * 6;
+    let onePageHeight = document.getElementById("landingPage").offsetHeight; // The height of one page in the website
+
+    for (let i = 0; i < positions.length; i++)
+        positions[i] = onePageHeight * (i+1);
 }
+
+// Set initial positions when loading this script
+setPositions();
+window.addEventListener("resize", setPositions);
 
 // We stop scrolling if the window changes orientation
 window.addEventListener("orientationchange", function() { clearTimeout(scrollTime); });
@@ -78,12 +70,11 @@ for (let i = 0; i < UP_ARROWS.length; i++)
 // Determines where we need to scroll based on what was clicked
 function determineScrollPosition(object)
 {
-    if (object === NAV_LINKS[0] || object === DOWN_ARROWS[0]) positionToScrollTo = aboutMePosition;
-    else if (object === NAV_LINKS[1] || object === DOWN_ARROWS[1]) positionToScrollTo = project1Position;
-    else if (object === NAV_LINKS[2] || object === DOWN_ARROWS[2]) positionToScrollTo = project2Position;
-    else if (object === NAV_LINKS[3] || object === DOWN_ARROWS[3]) positionToScrollTo = project3Position;
-    else if (object === NAV_LINKS[4] || object === DOWN_ARROWS[4]) positionToScrollTo = project4Position;
-    else if (object === NAV_LINKS[5] || object === DOWN_ARROWS[5]) positionToScrollTo = contactPosition;
+    for (let i = 0; i < positions.length; i++)
+    {
+        if (object === NAV_LINKS[i] || object === DOWN_ARROWS[i])
+            positionToScrollTo = positions[i];
+    }
 }
 
 // Recursive function that does a smooth scroll

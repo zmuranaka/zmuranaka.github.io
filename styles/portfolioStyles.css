@@ -127,6 +127,7 @@ p {
 .downArrow, .upArrow {
     display: none;
     position: absolute;
+    z-index: 1;
     top: 85vh;
     right: 0;
     left: 0;
@@ -175,6 +176,8 @@ p {
 /* iframe styles */
 
 iframe {
+    position: relative;
+    z-index: -1;
     width: 95%;
     height: 80vh;
     margin: 2vh 0 0 0;
