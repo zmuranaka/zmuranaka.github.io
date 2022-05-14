@@ -191,9 +191,41 @@ footer {
     font-variant: small-caps;
 }
 
+/* The aspect ratio is sufficient for tall videos to be displayed */
 @media screen and (min-aspect-ratio: 11/25) { .tallVideo { display: inline } }
 
+/* Show the corresponding description for tall videos if tall videos are not able to be displayed */
+@media screen and (max-aspect-ratio: 1099/2500) {
+
+    .description.tall {
+        display: flex;
+        font-size: 3vh;
+    }
+
+}
+
+/* The aspect ratio is sufficient for wide videos to be displayed */
 @media screen and (min-aspect-ratio: 9/10) { .wideVideo { display: inline } }
+
+/* Show the corresponding description for wide videos if wide videos are not able to be displayed */
+@media screen and (max-aspect-ratio: 899/1000) {
+
+    .description.wide {
+        display: flex;
+        font-size: 3vh;
+    }
+
+}
+
+/* The screen is sufficiently tall to display the description no matter the aspect ratio */
+@media screen and (min-height: 600px) {
+
+    .description {
+        display: flex;
+        font-size: 2vh!important;
+    }
+
+}
 
 @media screen and (min-aspect-ratio: 18/25) and (min-height: 1000px),
        screen and (min-aspect-ratio: 22/15) and (min-height: 368px) { .downArrow, .upArrow { display: inline } }
