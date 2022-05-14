@@ -22,7 +22,7 @@ section {
 
 header {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: 48px;
     background: linear-gradient(rgb(0, 0, 204), midnightblue);
@@ -55,7 +55,7 @@ video {
 
 #burgerNav {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     right: 0;
     background: blue;
     cursor: pointer;
@@ -63,7 +63,7 @@ video {
 
 .navLink {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     line-height: 2em;
     padding-left: 1em;
