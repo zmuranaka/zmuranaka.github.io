@@ -6,9 +6,8 @@ Zachary Muranaka
 Handles the scrolling in my portfolio
 */
 
-var navLinks = C("navLink"); // Array of the nav links
-var downArrows = C("downArrow"); // Array of the down arrows
-var upArrows = C("upArrow"); // Array of the up arrows
+const downArrows = document.getElementsByClassName("downArrow"); // Array of the down arrows
+const upArrows = document.getElementsByClassName("upArrow"); // Array of the up arrows
 var aboutMePosition;
 var project1Position;
 var project2Position;
@@ -25,7 +24,7 @@ window.addEventListener("resize", setPositions);
 // Sets the variables that keep track of where objects are in the website
 function setPositions()
 {
-    var onePageHeight = O("landingPage").offsetHeight; // The height of one page in the website
+    var onePageHeight = document.getElementById("landingPage").offsetHeight; // The height of one page in the website
     aboutMePosition = onePageHeight;
     project1Position = onePageHeight * 2;
     project2Position = onePageHeight * 3;
@@ -106,7 +105,7 @@ function smoothScroll(direction)
 // Returns whether we need to scroll up or down (true means down)
 function upOrDown()
 {
-    return O("burgerNav").offsetHeight ?
+    return document.getElementById("burgerNav").offsetHeight ?
     window.pageYOffset < positionToScrollTo - 45 :
     window.pageYOffset < positionToScrollTo;
 }
@@ -114,7 +113,7 @@ function upOrDown()
 // Returns whether we need to scroll again or not (true means we do)
 function isScrollAgainNecessary()
 {
-    return O("burgerNav").offsetHeight ?
+    return document.getElementById("burgerNav").offsetHeight ?
     (window.pageYOffset < positionToScrollTo - 57 || window.pageYOffset > positionToScrollTo - 45) && !isAtTop() :
     (window.pageYOffset < positionToScrollTo - 12 || window.pageYOffset > positionToScrollTo) && !isAtTop();
 }
