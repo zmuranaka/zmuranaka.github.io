@@ -103,9 +103,9 @@ p a:active {
 
 p {
     width: 95%;
+    margin: 2vh auto;
     padding: 0;
     color: rgb(40, 40, 40);
-    margin: 2vh auto;
     font-size: 2.7vh;
 }
 
@@ -170,6 +170,14 @@ p {
     color: rgb(0, 0, 30);
 }
 
+/* iframe styles */
+
+iframe {
+    width: 95%;
+    height: 60vh;
+    border: none;
+}
+
 /* Footer styles */
 
 footer {
@@ -215,7 +223,7 @@ footer {
 
     header { display: none }
 
-    p { width: 55% }
+    p, iframe { width: 55% }
 
     #landingPage .downArrow { top: 85vh }
 

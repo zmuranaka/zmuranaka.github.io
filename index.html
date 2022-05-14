@@ -12,10 +12,7 @@
     <title>Zachary Muranaka | Portfolio</title>
     <link href="styles/portfolioStyles.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico">
-    <script src="scripts/functions.js" defer></script>
-    <script src="scripts/navigation.js" defer></script>
-    <script src="scripts/scroll.js" defer></script>
-    <script src="scripts/descriptions.js" defer></script>
+    <script src="scripts/functions.js" async></script>
 </head>
 
 <body>
@@ -31,6 +28,7 @@
             <div class="navLink">SimpleStats</div>
             <div class="navLink">Password Generator</div>
             <div class="navLink">Reckless Road</div>
+            <div class="navLink">Contact Me</div>
         </nav>
         <h1>Zachary Muranaka</h1>
         <p class="info">
@@ -103,7 +101,7 @@
             Built with HTML, CSS, and JavaScript using the Fetch API to make web requests.
         </p>
         <div>
-            <video poster="images/passwordgenerator.jpg" class="tallVideo" controls>
+            <video poster="images/passwordgenerator.jpg" class="wideVideo" controls>
                 <source src="videos/passwordgenerator.mp4" type="video/mp4">
             </video>
         </div>
@@ -114,7 +112,7 @@
     </section>
 
     <section>
-        <img src="images/blackUpArrow.png" class="upArrow" alt="Back to Top"/>
+        <img src="images/blackDownArrow.png" class="downArrow" alt="Continue"/>
         <h2>Reckless Road</h2>
         <p class="description">
             Computer game where you control a taxi driving down a crazy road.
@@ -131,6 +129,16 @@
         </div>
     </section>
 
+    <section>
+        <img src="images/blackUpArrow.png" class="upArrow" alt="Back to Top"/>
+        <h2>Contact Me</h2>
+        <p class="description">
+            Leave a message and click submit and I'll get back to you as soon as I can!
+        </p>
+        <iframe src="https://zmuranaka.herokuapp.com/" title="Send me a message">
+        </iframe>
+    </section>
+
     <footer>
         <div>
             &#9400; 2022 Zachary Muranaka
@@ -140,6 +148,10 @@
             <a href="https://weber.joinhandshake.com/users/7194928?ref=students"><img src="images/handshakeLogo.jpg" alt="Handshake"/></a>
         </div>
     </footer>
+
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/scroll.js"></script>
+    <script src="scripts/descriptions.js"></script>
 
 </body>
 

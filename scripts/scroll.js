@@ -14,6 +14,7 @@ var project1Position;
 var project2Position;
 var project3Position;
 var project4Position;
+var contactPosition;
 var positionToScrollTo;
 var scrollTime; // This keeps track of the setTimeout while scrolling
 
@@ -30,6 +31,7 @@ function setPositions()
     project2Position = onePageHeight * 3;
     project3Position = onePageHeight * 4;
     project4Position = onePageHeight * 5;
+    contactPosition = onePageHeight * 6;
 }
 
 // We stop scrolling if the window changes orientation
@@ -84,6 +86,7 @@ function determineScrollPosition(object)
     else if (object === navLinks[2] || object === downArrows[2]) positionToScrollTo = project2Position;
     else if (object === navLinks[3] || object === downArrows[3]) positionToScrollTo = project3Position;
     else if (object === navLinks[4] || object === downArrows[4]) positionToScrollTo = project4Position;
+    else if (object === navLinks[5] || object === downArrows[5]) positionToScrollTo = contactPosition;
 }
 
 // Recursive function that does a smooth scroll
@@ -94,7 +97,7 @@ function smoothScroll(direction)
         // The setTimeout creates the smooth scroll effect
         scrollTime = setTimeout(function()
         {
-            window.scrollBy(0, direction ? 6 : -6); // Scroll by 6 pixels
+            window.scrollBy(0, direction ? 12 : -12); // Scroll by 12 pixels
             smoothScroll(direction); // Recursively call this function
         }, 0);
     }
@@ -104,7 +107,7 @@ function smoothScroll(direction)
 function upOrDown()
 {
     return O("burgerNav").offsetHeight ?
-    window.pageYOffset < positionToScrollTo - 48 :
+    window.pageYOffset < positionToScrollTo - 45 :
     window.pageYOffset < positionToScrollTo;
 }
 
@@ -112,8 +115,8 @@ function upOrDown()
 function isScrollAgainNecessary()
 {
     return O("burgerNav").offsetHeight ?
-    (window.pageYOffset < positionToScrollTo - 54 || window.pageYOffset > positionToScrollTo - 48) && !isAtTop() :
-    (window.pageYOffset < positionToScrollTo - 6 || window.pageYOffset > positionToScrollTo) && !isAtTop();
+    (window.pageYOffset < positionToScrollTo - 57 || window.pageYOffset > positionToScrollTo - 45) && !isAtTop() :
+    (window.pageYOffset < positionToScrollTo - 12 || window.pageYOffset > positionToScrollTo) && !isAtTop();
 }
 
 // Returns whether we are at the top of the page or not (true means we are)
