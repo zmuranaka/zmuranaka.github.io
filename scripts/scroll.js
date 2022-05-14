@@ -19,54 +19,6 @@ function setPositions()
         positions[i] = onePageHeight * (i+1);
 }
 
-// Set initial positions when loading this script
-setPositions();
-window.addEventListener("resize", setPositions);
-
-// We stop scrolling if the window changes orientation
-window.addEventListener("orientationchange", function() { clearTimeout(scrollTime); });
-
-// Add event listeners to the nav links
-for (let i = 0; i < NAV_LINKS.length; i++)
-{
-    NAV_LINKS[i].addEventListener("click", function()
-    {
-        clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
-        determineScrollPosition(this);
-        smoothScroll(upOrDown());
-    });
-}
-
-// Add event listeners to the down arrows
-for (let i = 0; i < DOWN_ARROWS.length; i++)
-{
-    DOWN_ARROWS[i].addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; });
-    DOWN_ARROWS[i].addEventListener("mouseleave", function() { this.src = "images/blackDownArrow.png"; });
-    DOWN_ARROWS[i].addEventListener("mousedown", function() { this.src = "images/yellowDownArrow.png"; });
-    DOWN_ARROWS[i].addEventListener("mouseup", function() { this.src = "images/blueDownArrow.png"; });
-    DOWN_ARROWS[i].addEventListener("click", function()
-    {
-        clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
-        determineScrollPosition(this);
-        smoothScroll(upOrDown());
-    });
-}
-
-// Add event listeners to the up arrows
-for (let i = 0; i < UP_ARROWS.length; i++)
-{
-    UP_ARROWS[i].addEventListener("mouseenter", function() { this.src = "images/blueUpArrow.png"; });
-    UP_ARROWS[i].addEventListener("mouseleave", function() { this.src = "images/blackUpArrow.png"; });
-    UP_ARROWS[i].addEventListener("mousedown", function() { this.src = "images/yellowUpArrow.png"; });
-    UP_ARROWS[i].addEventListener("mouseup", function() { this.src = "images/blueUpArrow.png"; });
-    UP_ARROWS[i].addEventListener("click", function()
-    {
-        clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
-        positionToScrollTo = 0;
-        smoothScroll(upOrDown());
-    });
-}
-
 // Determines where we need to scroll based on what was clicked
 function determineScrollPosition(object)
 {
@@ -109,3 +61,52 @@ function isScrollAgainNecessary()
 
 // Returns whether we are at the top of the page or not (true means we are)
 function isAtTop() { return positionToScrollTo === 0 && window.pageYOffset === 0; }
+
+// Set initial positions when loading this script
+setPositions();
+window.addEventListener("resize", setPositions);
+
+// We stop scrolling if the window changes orientation
+window.addEventListener("orientationchange", function() { clearTimeout(scrollTime); });
+
+// Add event listeners to the nav links
+for (let navLink of NAV_LINKS)
+{
+    navLink.addEventListener("click", function()
+    {
+        clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
+        determineScrollPosition(this);
+        smoothScroll(upOrDown());
+    });
+
+}
+
+// Add event listeners to the down arrows
+for (let downArrow of DOWN_ARROWS)
+{
+    downArrow.addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; })
+    downArrow.addEventListener("mouseleave", function() { this.src = "images/blackDownArrow.png"; });
+    downArrow.addEventListener("mousedown", function() { this.src = "images/yellowDownArrow.png"; });
+    downArrow.addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; })
+    downArrow.addEventListener("click", function()
+    {
+        clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
+        determineScrollPosition(this);
+        smoothScroll(upOrDown());
+    });
+}
+
+// Add event listeners to the up arrows
+for (let upArrow of UP_ARROWS)
+{
+    upArrow.addEventListener("mouseenter", function() { this.src = "images/blueUpArrow.png"; })
+    upArrow.addEventListener("mouseleave", function() { this.src = "images/blackUpArrow.png"; });
+    upArrow.addEventListener("mousedown", function() { this.src = "images/yellowUpArrow.png"; });
+    upArrow.addEventListener("mouseup", function() { this.src = "images/blueUpArrow.png"; })
+    upArrow.addEventListener("click", function()
+    {
+        clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
+        positionToScrollTo = 0;
+        smoothScroll(upOrDown());
+    });
+}

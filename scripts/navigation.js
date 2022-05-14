@@ -55,7 +55,8 @@ if (oldAspectRatio >= ASPECT_RATIO_TO_CHANGE_LAYOUT)
 else setLayout(false);
 
 // The styles may need to be changed when the window changes orientation or is resized
-["orientationchange", "resize"].forEach(e => window.addEventListener(e, changeStyles));
+window.addEventListener("orientationchange", changeStyles);
+window.addEventListener("resize", changeStyles);
 
 BURGER_NAV.addEventListener("mouseenter", function()
 {
