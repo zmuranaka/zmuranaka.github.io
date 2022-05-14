@@ -6,7 +6,7 @@ Zachary Muranaka
 Handles the scrolling in my portfolio
 */
 
-var positions = [0, 0, 0, 0, 0, 0]
+var positions = [0, 0, 0, 0, 0, 0];
 var positionToScrollTo;
 var scrollTime; // This keeps track of the setTimeout while scrolling
 
@@ -84,10 +84,10 @@ for (let navLink of NAV_LINKS)
 // Add event listeners to the down arrows
 for (let downArrow of DOWN_ARROWS)
 {
-    downArrow.addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; })
+    downArrow.addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; });
     downArrow.addEventListener("mouseleave", function() { this.src = "images/blackDownArrow.png"; });
     downArrow.addEventListener("mousedown", function() { this.src = "images/yellowDownArrow.png"; });
-    downArrow.addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; })
+    downArrow.addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; });
     downArrow.addEventListener("click", function()
     {
         clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
@@ -99,10 +99,10 @@ for (let downArrow of DOWN_ARROWS)
 // Add event listeners to the up arrows
 for (let upArrow of UP_ARROWS)
 {
-    upArrow.addEventListener("mouseenter", function() { this.src = "images/blueUpArrow.png"; })
+    upArrow.addEventListener("mouseenter", function() { this.src = "images/blueUpArrow.png"; });
     upArrow.addEventListener("mouseleave", function() { this.src = "images/blackUpArrow.png"; });
     upArrow.addEventListener("mousedown", function() { this.src = "images/yellowUpArrow.png"; });
-    upArrow.addEventListener("mouseup", function() { this.src = "images/blueUpArrow.png"; })
+    upArrow.addEventListener("mouseup", function() { this.src = "images/blueUpArrow.png"; });
     upArrow.addEventListener("click", function()
     {
         clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
