@@ -6,62 +6,67 @@ Zachary Muranaka
 Allows the nav styles to change depending on the viewport
 */
 
-var burgerNav = document.getElementById("burgerNav");
-var menuIsOpen = false; // Boolean value that keeps track of whether the menu is open or not
+var menuIsOpen = false; // Keeps track of if the nav is open or not. It begins closed and can be opened with JavaScript.
+var oldAspectRatio = window.innerWidth / window.innerHeight;
 
-// When we load, resize, or change orientation we may have to change the display of the nav links
-window.addEventListener("load", changeStyles);
-window.addEventListener("resize", changeStyles);
-window.addEventListener("orientationchange", changeStyles);
-
-burgerNav.addEventListener("mouseenter", function()
+function setLayout(isWide)
 {
-    this.src = "images/blackBurgerNav.png";
-    this.style.background = "rgb(216, 216, 255)";
-});
-burgerNav.addEventListener("mouseleave", function()
-{
-    this.src = "images/whiteBurgerNav.png";
-    this.style.background = "blue";
-});
-burgerNav.addEventListener("mousedown", function() { this.style.background = "yellow"; });
-burgerNav.addEventListener("mouseup", function() { this.style.background = "rgb(216, 216, 255)"; });
-burgerNav.addEventListener("click", burgerNavClicked);
-
-// Changes the nav styles if the viewport's aspect ratio has changed to below or above 22/15
-function changeStyles()
-{
-    if (window.innerWidth / window.innerHeight >= 22/15)
-    {
-        for (let i = 0, offset = 0; i < navLinks.length; i++, offset+=2)
-            navLinks[i].style.top = offset + "em";
-
-        openNavMenu();
-    }
-    else
-    {
-        for (let i = 0, offset = 3; i < navLinks.length; i++, offset+=2)
-            navLinks[i].style.top = offset + "em";
-
-        closeNavMenu();
-    }
-}
-
-// If the menu is open, it closes it, and if it is closed, it opens it
-function burgerNavClicked()
-{
-    if (menuIsOpen) closeNavMenu();
-    else openNavMenu();
+    for (let i = 0, topOffset = isWide ? 0 : 3; i < NAV_LINKS.length; i++, topOffset+=2)
+        NAV_LINKS[i].style.top = `${topOffset}em`;
 }
 
 function closeNavMenu()
 {
-    document.getElementById("pageNav").style.display = "none";
-    menuIsOpen = false; // The menu is now closed
+    PAGE_NAV.style.display = "none";
+    return false; // The menu is now closed
 }
 
 function openNavMenu()
 {
-    document.getElementById("pageNav").style.display = "block";
-    menuIsOpen = true; // The menus is now open
+    PAGE_NAV.style.display = "block";
+    return true; // The menus is now open
 }
+
+// Changes the nav styles if the viewport's aspect ratio has changed to below or above 22/15
+function changeStyles()
+{
+    let newAspectRatio = window.innerWidth / window.innerHeight;
+    if (newAspectRatio === oldAspectRatio) return;
+
+    if (newAspectRatio >= ASPECT_RATIO_TO_CHANGE_LAYOUT && oldAspectRatio < ASPECT_RATIO_TO_CHANGE_LAYOUT)
+    {
+        setLayout(true);
+        if (!menuIsOpen) menuIsOpen = openNavMenu();
+    }
+    else if (newAspectRatio < ASPECT_RATIO_TO_CHANGE_LAYOUT && oldAspectRatio >= ASPECT_RATIO_TO_CHANGE_LAYOUT)
+    {
+        setLayout(false);
+        if (menuIsOpen) menuIsOpen = closeNavMenu();
+    }
+    oldAspectRatio = newAspectRatio;
+}
+
+// Initial layout set when loading this script
+if (oldAspectRatio >= ASPECT_RATIO_TO_CHANGE_LAYOUT)
+{
+    setLayout(true);
+    menuIsOpen = openNavMenu();
+}
+else setLayout(false);
+
+// The styles may need to be changed when the window changes orientation or is resized
+["orientationchange", "resize"].forEach(e => window.addEventListener(e, changeStyles));
+
+BURGER_NAV.addEventListener("mouseenter", function()
+{
+    this.src = "images/blackBurgerNav.png";
+    this.style.background = "rgb(216, 216, 255)";
+});
+BURGER_NAV.addEventListener("mouseleave", function()
+{
+    this.src = "images/whiteBurgerNav.png";
+    this.style.background = "blue";
+});
+BURGER_NAV.addEventListener("mousedown", function() { this.style.background = "yellow"; });
+BURGER_NAV.addEventListener("mouseup", function() { this.style.background = "rgb(216, 216, 255)"; });
+BURGER_NAV.addEventListener("click", function() { menuIsOpen = menuIsOpen ? closeNavMenu() : openNavMenu(); });

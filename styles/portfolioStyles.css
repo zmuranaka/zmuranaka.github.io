@@ -51,6 +51,8 @@ video {
 
 /* Nav styles */
 
+#pageNav { display: none }
+
 #burgerNav {
     position: fixed;
     z-index: 1;

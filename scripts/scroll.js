@@ -6,8 +6,6 @@ Zachary Muranaka
 Handles the scrolling in my portfolio
 */
 
-const downArrows = document.getElementsByClassName("downArrow"); // Array of the down arrows
-const upArrows = document.getElementsByClassName("upArrow"); // Array of the up arrows
 var aboutMePosition;
 var project1Position;
 var project2Position;
@@ -37,9 +35,9 @@ function setPositions()
 window.addEventListener("orientationchange", function() { clearTimeout(scrollTime); });
 
 // Add event listeners to the nav links
-for (let i = 0; i < navLinks.length; i++)
+for (let i = 0; i < NAV_LINKS.length; i++)
 {
-    navLinks[i].addEventListener("click", function()
+    NAV_LINKS[i].addEventListener("click", function()
     {
         clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
         determineScrollPosition(this);
@@ -48,13 +46,13 @@ for (let i = 0; i < navLinks.length; i++)
 }
 
 // Add event listeners to the down arrows
-for (let i = 0; i < downArrows.length; i++)
+for (let i = 0; i < DOWN_ARROWS.length; i++)
 {
-    downArrows[i].addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; });
-    downArrows[i].addEventListener("mouseleave", function() { this.src = "images/blackDownArrow.png"; });
-    downArrows[i].addEventListener("mousedown", function() { this.src = "images/yellowDownArrow.png"; });
-    downArrows[i].addEventListener("mouseup", function() { this.src = "images/blueDownArrow.png"; });
-    downArrows[i].addEventListener("click", function()
+    DOWN_ARROWS[i].addEventListener("mouseenter", function() { this.src = "images/blueDownArrow.png"; });
+    DOWN_ARROWS[i].addEventListener("mouseleave", function() { this.src = "images/blackDownArrow.png"; });
+    DOWN_ARROWS[i].addEventListener("mousedown", function() { this.src = "images/yellowDownArrow.png"; });
+    DOWN_ARROWS[i].addEventListener("mouseup", function() { this.src = "images/blueDownArrow.png"; });
+    DOWN_ARROWS[i].addEventListener("click", function()
     {
         clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
         determineScrollPosition(this);
@@ -63,13 +61,13 @@ for (let i = 0; i < downArrows.length; i++)
 }
 
 // Add event listeners to the up arrows
-for (let i = 0; i < upArrows.length; i++)
+for (let i = 0; i < UP_ARROWS.length; i++)
 {
-    upArrows[i].addEventListener("mouseenter", function() { this.src = "images/blueUpArrow.png"; });
-    upArrows[i].addEventListener("mouseleave", function() { this.src = "images/blackUpArrow.png"; });
-    upArrows[i].addEventListener("mousedown", function() { this.src = "images/yellowUpArrow.png"; });
-    upArrows[i].addEventListener("mouseup", function() { this.src = "images/blueUpArrow.png"; });
-    upArrows[i].addEventListener("click", function()
+    UP_ARROWS[i].addEventListener("mouseenter", function() { this.src = "images/blueUpArrow.png"; });
+    UP_ARROWS[i].addEventListener("mouseleave", function() { this.src = "images/blackUpArrow.png"; });
+    UP_ARROWS[i].addEventListener("mousedown", function() { this.src = "images/yellowUpArrow.png"; });
+    UP_ARROWS[i].addEventListener("mouseup", function() { this.src = "images/blueUpArrow.png"; });
+    UP_ARROWS[i].addEventListener("click", function()
     {
         clearTimeout(scrollTime); // We have a new place to scroll so any previous scroll scrollTimes are cleared
         positionToScrollTo = 0;
@@ -80,12 +78,12 @@ for (let i = 0; i < upArrows.length; i++)
 // Determines where we need to scroll based on what was clicked
 function determineScrollPosition(object)
 {
-    if (object === navLinks[0] || object === downArrows[0]) positionToScrollTo = aboutMePosition;
-    else if (object === navLinks[1] || object === downArrows[1]) positionToScrollTo = project1Position;
-    else if (object === navLinks[2] || object === downArrows[2]) positionToScrollTo = project2Position;
-    else if (object === navLinks[3] || object === downArrows[3]) positionToScrollTo = project3Position;
-    else if (object === navLinks[4] || object === downArrows[4]) positionToScrollTo = project4Position;
-    else if (object === navLinks[5] || object === downArrows[5]) positionToScrollTo = contactPosition;
+    if (object === NAV_LINKS[0] || object === DOWN_ARROWS[0]) positionToScrollTo = aboutMePosition;
+    else if (object === NAV_LINKS[1] || object === DOWN_ARROWS[1]) positionToScrollTo = project1Position;
+    else if (object === NAV_LINKS[2] || object === DOWN_ARROWS[2]) positionToScrollTo = project2Position;
+    else if (object === NAV_LINKS[3] || object === DOWN_ARROWS[3]) positionToScrollTo = project3Position;
+    else if (object === NAV_LINKS[4] || object === DOWN_ARROWS[4]) positionToScrollTo = project4Position;
+    else if (object === NAV_LINKS[5] || object === DOWN_ARROWS[5]) positionToScrollTo = contactPosition;
 }
 
 // Recursive function that does a smooth scroll

@@ -147,9 +147,13 @@
     </footer>
 
     <script>
-        // Declare array of nav links
-        // This is used in both of the following scripts so it is declared here first
-        const navLinks = document.getElementsByClassName("navLink");
+        // Declare constants that will be used in the scripts
+        const BURGER_NAV = document.getElementById("burgerNav");
+        const NAV_LINKS = document.getElementsByClassName("navLink");
+        const PAGE_NAV = document.getElementById("pageNav");
+        const DOWN_ARROWS = document.getElementsByClassName("downArrow");
+        const UP_ARROWS = document.getElementsByClassName("upArrow");
+        const ASPECT_RATIO_TO_CHANGE_LAYOUT = 22/15;
     </script>
     <script src="scripts/navigation.js"></script>
     <script src="scripts/scroll.js"></script>
