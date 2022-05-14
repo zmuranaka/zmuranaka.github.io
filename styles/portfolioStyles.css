@@ -174,7 +174,8 @@ p {
 
 iframe {
     width: 95%;
-    height: 60vh;
+    height: 80vh;
+    margin: 2vh 0 0 0;
     border: none;
 }
 
