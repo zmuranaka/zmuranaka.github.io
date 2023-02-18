@@ -6,14 +6,15 @@ Zachary Muranaka
 Handles the scrolling in my portfolio
 */
 
-var positions = [0, 0, 0, 0, 0, 0];
+var positions = [0, 0, 0, 0];
 var positionToScrollTo;
 var scrollTime; // This keeps track of the setTimeout while scrolling
 
 // Sets the variables that keep track of where objects are in the website
 function setPositions()
 {
-    let onePageHeight = document.getElementById("landingPage").offsetHeight; // The height of one page in the website
+    // The height of one page in the website
+    let onePageHeight = document.getElementById("landingPage").offsetHeight;
 
     for (let i = 0; i < positions.length; i++)
         positions[i] = onePageHeight * (i+1);
@@ -55,12 +56,12 @@ function upOrDown()
 function isScrollAgainNecessary()
 {
     return document.getElementById("burgerNav").offsetHeight ?
-    (window.pageYOffset < positionToScrollTo - 57 || window.pageYOffset > positionToScrollTo - 45) && !isAtTop() :
-    (window.pageYOffset < positionToScrollTo - 12 || window.pageYOffset > positionToScrollTo) && !isAtTop();
+    (window.pageYOffset < positionToScrollTo - 57 || window.pageYOffset > positionToScrollTo - 45) && isNotAtTop() :
+    (window.pageYOffset < positionToScrollTo - 12 || window.pageYOffset > positionToScrollTo) && isNotAtTop();
 }
 
-// Returns whether we are at the top of the page or not (true means we are)
-function isAtTop() { return positionToScrollTo === 0 && window.pageYOffset === 0; }
+// Returns if we are not at the top of the page (true means we are not at the top)
+function isNotAtTop() { return positionToScrollTo !== 0 || window.pageYOffset !== 0; }
 
 // Set initial positions when loading this script
 setPositions();
