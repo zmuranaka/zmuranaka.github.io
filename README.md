@@ -9,4 +9,4 @@ Author
 Zachary Muranaka
 
 *   zmuranaka@gmail.com
-*   [https://zmuranaka.github.io](https://zmuranaka.github.io)
+*   [zmuranaka.dev](https://zmuranaka.dev)
