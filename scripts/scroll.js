@@ -1,11 +1,5 @@
 "use strict";
 
-/*
-File: scroll.js
-Zachary Muranaka
-Handles the scrolling in my portfolio
-*/
-
 var positions = [0, 0, 0, 0];
 var positionToScrollTo;
 var scrollTime; // This keeps track of the setTimeout while scrolling

@@ -1,11 +1,5 @@
 "use strict";
 
-/*
-File: navigation.js
-Zachary Muranaka
-Allows the nav styles to change depending on the viewport
-*/
-
 var menuIsOpen = false; // Keeps track of if the nav is open or not. It begins closed and can be opened with JavaScript.
 var oldAspectRatio = window.innerWidth / window.innerHeight;
 
