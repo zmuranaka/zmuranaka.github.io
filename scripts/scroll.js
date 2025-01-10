@@ -42,20 +42,20 @@ function smoothScroll(direction)
 function upOrDown()
 {
     return document.getElementById("burgerNav").offsetHeight ?
-    window.pageYOffset < positionToScrollTo - 45 :
-    window.pageYOffset < positionToScrollTo;
+    window.scrollY < positionToScrollTo - 45 :
+    window.scrollY < positionToScrollTo;
 }
 
 // Returns whether we need to scroll again or not (true means we do)
 function isScrollAgainNecessary()
 {
     return document.getElementById("burgerNav").offsetHeight ?
-    (window.pageYOffset < positionToScrollTo - 57 || window.pageYOffset > positionToScrollTo - 45) && isNotAtTop() :
-    (window.pageYOffset < positionToScrollTo - 12 || window.pageYOffset > positionToScrollTo) && isNotAtTop();
+    (window.scrollY < positionToScrollTo - 57 || window.scrollY > positionToScrollTo - 45) && isNotAtTop() :
+    (window.scrollY < positionToScrollTo - 12 || window.scrollY > positionToScrollTo) && isNotAtTop();
 }
 
 // Returns if we are not at the top of the page (true means we are not at the top)
-function isNotAtTop() { return positionToScrollTo !== 0 || window.pageYOffset !== 0; }
+function isNotAtTop() { return positionToScrollTo !== 0 || window.scrollY !== 0; }
 
 // Set initial positions when loading this script
 setPositions();
