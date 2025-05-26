@@ -6,12 +6,12 @@ body {
     margin: 0;
     text-align: center;
     font-family: "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-    word-wrap: break-word; /* Makes sure text never overflows the screen */
+    word-wrap: break-word; /* Text never overflows screen */
 }
 
 section {
     position: relative;
-    height: 100vh; /* vh means viewport height */
+    height: 100vh;
 }
 
 header {
